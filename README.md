@@ -36,6 +36,11 @@ Registro de cuenta:https://github.com/
 
 El estudiante deberá contar con una cuenta activa antes de iniciar las actividades prácticas.
 
+1.5 Arduino software
+Entorno de desarrollo para la programación y carga de firmware en placas Arduino, utilizado en prácticas de integración con Python y sistemas embebidos.
+
+Sitio oficial de descarga:https://www.arduino.cc/en/software/
+
 2. Extensiones recomendadas para Visual Studio Code
 
 Para optimizar el entorno de desarrollo, se deberán instalar las siguientes extensiones desde el marketplace de Visual Studio Code.
@@ -69,4 +74,28 @@ Inspeccionar variables
 Analizar el flujo de ejecución
 
 Detectar errores lógicos y de ejecución
+
+2.4 Pylance
+
+Motor avanzado de análisis estático para Python. Mejora significativamente la experiencia de desarrollo mediante:
+
+Autocompletado inteligente basado en tipos
+
+Detección temprana de errores
+
+Navegación eficiente entre definiciones
+
+Soporte avanzado de tipado (type hints)
+
+2.5 Jupyter
+
+Extensión para el uso de notebooks Jupyter dentro de Visual Studio Code. Resulta especialmente útil para:
+
+Análisis de datos
+
+Visualización de resultados
+
+Prototipado rápido de algoritmos
+
+Documentación interactiva del código
 
