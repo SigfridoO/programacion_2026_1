@@ -5,7 +5,7 @@ class Persona:
     def __init__(self, nombre, apellido):
         self.nombre = nombre
         self.apellido = apellido
-        print("Dentro del constructor")
+        #print("Dentro del constructor")
 
     def saludar (self):
         print(f"Hola como estas soy {self.nombre}")
