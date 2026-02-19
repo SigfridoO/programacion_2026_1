@@ -11,6 +11,14 @@ def main():
 
     laboratorio3.inscribir_alumno(antonio)
     laboratorio3.mostrar_alumnos()
-    
+
+    roldan = Persona("José", "Roldan")
+    laboratorio3.inscribir_alumno(roldan)
+    laboratorio3.mostrar_alumnos()
+
+    antonio.calificar()
+    antonio.mostrar_calificaciones()
+
+
 if __name__ == '__main__':
     main()
