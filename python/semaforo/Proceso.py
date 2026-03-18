@@ -11,6 +11,7 @@ class Proceso:
 
         self.M = list()
         self.numeroM = 8
+        self.worker = None
 
         for i in range(self.numeroX):
             self.X.append(False)
@@ -34,7 +35,11 @@ class Proceso:
         while self.proceso_funcionando:
 
             # secuencia a realizar
-            self.Y[0] = self.X[0]
+            self.Y[0] = ( self.X[0] or self.Y[0] ) and not self.X[1]
+
+            if self.worker:
+                # print(self.worker)
+                self.worker.prender_luz(self.Y[0])
 
             print(f"self.Y[0]: {self.Y[0]}")
             self.contador +=1
@@ -45,6 +50,8 @@ class Proceso:
         if indice < self.numeroX:
             self.X[indice] = valor
 
+    def establecer_worker(self, worker):
+        self.worker = worker
 
     def __str__(self):
         return ""

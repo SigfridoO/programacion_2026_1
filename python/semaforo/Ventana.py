@@ -30,28 +30,40 @@ class Ventana(QMainWindow):
         mi_layout = QGridLayout()
         contenedor.setLayout(mi_layout)
         boton_arranque = QPushButton("Activar")
-        boton_paro = QLabel()
-        indicador = QLabel()
+        boton_paro = QPushButton("Detener")
+        self.indicador = QLabel()
         mi_layout.addWidget(boton_arranque, 0, 0)
         mi_layout.addWidget(boton_paro, 1, 0)
-        mi_layout.addWidget(indicador, 0, 1, 2, 1)
+        mi_layout.addWidget(self.indicador, 0, 1, 2, 1)
 
-        self.actualizar_control(boton_arranque, "Green")
-        self.actualizar_control(boton_paro, "Red")
-        self.actualizar_control(indicador, "Gray")
+        # self.actualizar_control(boton_arranque, "Green")
+        # self.actualizar_control(boton_paro, "Red")
+        self.actualizar_control(self.indicador, "Gray")
 
         self.setCentralWidget(contenedor)
 
         self.proceso = None
-        # Iniciando Worker
+        # 
+        # ++ Worker
         self.worker = Worker()
         self.pool = QThreadPool()
         self.pool.start(self.worker)
         boton_arranque.setCheckable(True)
         boton_arranque.clicked.connect(self.cambiar_estado)
 
+        boton_paro.setCheckable(True)
+        boton_paro.clicked.connect(self.cambiar_estado1)
+
+        self.worker.signals.luz.connect(self.prender_indicador)
+
+    def obtener_worker(self): 
+        return self.worker
+
     def cambiar_estado(self, valor):
         self.cambiar_bandera_proceso(0,valor)
+
+    def cambiar_estado1(self, valor):
+        self.cambiar_bandera_proceso(1,valor)
 
     def establecer_proceso(self, proceso):
         self.proceso = proceso
@@ -59,6 +71,12 @@ class Ventana(QMainWindow):
     def cambiar_bandera_proceso(self, indice:int, valor:bool):
         if self.proceso:
             self.proceso.cambiar_valor_x(indice, valor)
+
+    def prender_indicador(self, valor):
+        if valor:
+            self.actualizar_control(self.indicador, "Green")
+        else:
+            self.actualizar_control(self.indicador, "Gray")
 
     def actualizar_control(self, etiqueta: QLabel, color:str):
         etiqueta.setStyleSheet(f"background-color: {color}")

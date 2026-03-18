@@ -10,7 +10,9 @@ class Inicio(Ventana):
         super().__init__()
         proceso = Proceso()
         proceso.iniciar_tarea()
+        proceso.establecer_worker(self.obtener_worker())
         self.establecer_proceso(proceso)
+
 
 
 def main():
