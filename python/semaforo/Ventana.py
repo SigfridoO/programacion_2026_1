@@ -50,6 +50,8 @@ class Ventana(QMainWindow):
         self.indicador = QLabel()
         self.indicador_2 = QLabel()
         self.indicador_3 = QLabel()
+        mi_layout.setVerticalSpacing(10)
+        mi_layout.setHorizontalSpacing(10)
         mi_layout.addWidget(boton_arranque, 0, 0)
         mi_layout.addWidget(boton_paro, 1, 0)
         mi_layout.addWidget(self.indicador, 0, 1, 2, 1)

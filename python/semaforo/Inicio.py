@@ -4,6 +4,7 @@ import sys
 
 from Ventana import Ventana
 from Proceso import Proceso
+from Electronica import Electronica
 
 class Inicio(Ventana):
     def __init__(self):
@@ -12,6 +13,8 @@ class Inicio(Ventana):
         proceso.iniciar_tarea()
         proceso.establecer_worker(self.obtener_worker())
         self.establecer_proceso(proceso)
+        electronica = Electronica()
+        proceso.establecer_electronica(electronica)
 
 
 
